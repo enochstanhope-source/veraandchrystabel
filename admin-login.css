@@ -11,6 +11,12 @@ body {
     justify-content: center;
 }
 
+/* Prevent horizontal scrolling on small screens */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .admin-login-button {
     background-color: var(--primary-color, #b30000);
     color: white;
@@ -54,6 +60,29 @@ body {
     max-width: 420px;
     padding: 20px;
     animation: fadeIn 0.5s ease-in;
+}
+
+/* Center login box on very small screens and make it responsive */
+@media screen and (max-width: 480px) {
+    .login-container {
+        padding: 12px;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .login-box {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .logo h1 {
+        font-size: 18px;
+    }
+}
+
+/* Ensure any images inside login area scale down on mobile */
+.login-box img, .logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 @keyframes fadeIn {

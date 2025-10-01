@@ -480,25 +480,22 @@
         <script src="index.js"></script>
         <script src="navigation.js"></script>
         <script>
+        // Attach a small, robust logout proxy that calls the global logout() defined in navigation.js
         document.addEventListener('DOMContentLoaded', function() {
             const logoutBtn = document.getElementById('logoutBtn');
-
-            // Logout button click handler
-                if (logoutBtn) {
-                    logoutBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        localStorage.clear();
-                        sessionStorage.clear();
-                        window.location.replace('index.html');
-                    });
-
-                    // Keyboard accessibility for logout
-                    logoutBtn.addEventListener('keydown', function(e) {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            localStorage.clear();
-                            sessionStorage.clear();
-                            window.location.replace('index.html');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+                    if (window.logout) return window.logout(e);
+                    // Fallback if logout not available
+                    try { localStorage.clear(); sessionStorage.clear(); } catch (err) {}
+                    window.location.replace('index.html');
+                });
+                logoutBtn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        if (e && typeof e.preventDefault === 'function') e.preventDefault();
+                        if (window.logout) return window.logout(e);
+                        try { localStorage.clear(); sessionStorage.clear(); } catch (err) {}
                         window.location.replace('index.html');
                     }
                 });

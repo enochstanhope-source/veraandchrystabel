@@ -65,6 +65,23 @@ function togglePassword() {
     }
 }
 
+// Attach toggle handler to the button (in case markup doesn't use inline onclick)
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.toggle-password');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            togglePassword();
+        });
+        toggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                togglePassword();
+            }
+        });
+    }
+});
+
 function showError(message) {
     const form = document.getElementById('loginForm');
     const errorDiv = document.createElement('div');

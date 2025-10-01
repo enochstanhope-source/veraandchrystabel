@@ -12,20 +12,28 @@
     <link rel="stylesheet" href="admin-login.css">
 </head>
 <body>
-    <button class="admin-login-button">
-            <i class="fas fa-sign-out-alt"></i>
-            Exit Software
-        </button>
-        <script>
-        document.querySelector('.admin-login-button').addEventListener('click', function() {
-            window.close();
-            // Show a message if the window doesn't close
-            setTimeout(function() {
-                alert('Please close this tab manually if it doesn\'t close automatically.');
-            }, 100);
-        });
-        </script
+    <button class="admin-login-button" type="button">
+        <i class="fas fa-sign-out-alt"></i>
+        Exit Software
     </button>
+    <script>
+        (function() {
+            const btn = document.querySelector('.admin-login-button');
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    try {
+                        window.close();
+                    } catch (err) {
+                        // ignore
+                    }
+                    // Show a message if the window doesn't close
+                    setTimeout(function() {
+                        alert('Please close this tab manually if it \'doesn\'t close automatically.');
+                    }, 100);
+                });
+            }
+        })();
+    </script>
     <div class="login-container">
         <div class="login-box">
             <div class="login-header">
@@ -55,7 +63,7 @@
                     </label>
                     <div class="password-input">
                         <input type="text" id="password" name="password" placeholder= "Enter admin password" required autocomplete="new-password">
-                        <button type="button" class="toggle-password" onclick="togglePassword()"
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
                             <i class="fas fa-eye-slash"></i>
                         </button>
                     </div>

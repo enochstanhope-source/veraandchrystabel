@@ -27,15 +27,38 @@ document.addEventListener('DOMContentLoaded', function() {
 // Logout functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Support multiple logout buttons/links
+    // Define a reusable logout function so all handlers call the same logic
+    window.logout = function(e) {
+        if (e && typeof e.preventDefault === 'function') {
+            e.preventDefault();
+        }
+        if (e && typeof e.stopPropagation === 'function') {
+            e.stopPropagation();
+        }
+        try {
+            localStorage.clear();
+            sessionStorage.clear();
+        } catch (err) {
+            // ignore storage errors
+        }
+        // Replace so back doesn't return to protected page
+        window.location.replace('index.html');
+    };
+
     const logoutBtns = document.querySelectorAll('#logoutBtn, .logout-btn, .dropdown-item.logout');
     logoutBtns.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Clear any stored credentials or session data
-            localStorage.clear();
-            sessionStorage.clear();
-            // Use replace to redirect to index.html and prevent going back
-            window.location.replace('index.html');
+            // Stop the click bubbling so sidebar/parent handlers don't intercept
+            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+            window.logout(e);
+        });
+        // Keyboard accessibility
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e && typeof e.preventDefault === 'function') e.preventDefault();
+                if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+                window.logout(e);
+            }
         });
     });
 });
