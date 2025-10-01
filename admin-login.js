@@ -1,7 +1,7 @@
 // Admin credentials (in a real application, this would be handled server-side)
 const ADMIN_CREDENTIALS = {
-    username: '#EBOH',
-    password: '#12345'
+    username: '#VERA',
+    password: '#TABEL'
 };
 
 // Clear form and console on page load
