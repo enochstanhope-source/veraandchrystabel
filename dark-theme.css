@@ -1,0 +1,245 @@
+  
+/* Dark Theme Variables */
+:root {
+    /* Dark luxury variables - red & black */
+    --primary-color: #b30000;
+    --primary-accent: #ff2b2b;
+    --background-color: linear-gradient(180deg, #220505 0%, #121212 100%);
+    --card-bg: linear-gradient(135deg, #0f0f10 0%, #171717 60%);
+    --card-bg-lighter: #1b1b1b;
+    --text-primary: #f7f5f5;
+    --text-secondary: #b9b2b2;
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    --border-radius: 12px;
+    --transition-speed: 0.28s;
+    --hover-bg: rgba(255, 43, 43, 0.06);
+    --border-color: rgba(255,255,255,0.04);
+}
+
+/* Base styling for dark theme */
+body {
+    background: var(--background-color);
+    color: var(--text-primary);
+}
+@media screen and (max-width: 768px) {
+
+                .chart-title h3 {
+                    white-space: nowrap;
+                }
+                .grid-card.sales-chart .sales-header {
+                    background: var(--card-bg-lighter);
+                    padding: 30px;
+                }
+            }
+
+.grid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+.metrics-row {
+    background: var(--card-bg-lighter);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+.bar-background {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.metric-header i {
+    color: var(--text-primary);
+    opacity: 0.9;
+}
+
+.bar-label {
+    color: var(--text-primary);
+}
+
+.bar-trend {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+/* Enhanced glowing effects */
+.bar-glow {
+    filter: blur(6px);
+    opacity: 0.4;
+}
+
+/* Stat cards styling */
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Progress circle enhancement */
+.progress-circle {
+    background: var(--card-bg-lighter);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+.header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    background: var(--card-bg-lighter);
+    border: 1px solid var(--border-color);
+}
+
+.search-bar input {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-bar i {
+    color: var(--text-secondary);
+}
+
+/* Sidebar enhancement */
+.sidebar {
+    background: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar nav li {
+    transition: background-color 0.3s ease;
+    margin: 8px 0;
+    border-radius: var(--border-radius);
+    padding: 12px 20px;
+}
+
+.sidebar nav li:hover {
+    background: var(--hover-bg);
+}
+
+.sidebar nav li.active {
+    background: var(--hover-bg);
+    border-left: 3px solid var(--primary-color);
+}
+
+.sidebar nav i {
+    color: var(--text-primary) !important;
+}
+
+/* Chart container styling */
+.chart-container {
+    background: var(--card-bg-lighter);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+/* Product list styling */
+.product-list {
+    background: var(--card-bg-lighter);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.product-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.product-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.product-info h4 {
+    color: var(--text-primary);
+}
+
+.product-info p {
+    color: var(--text-secondary);
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Add smooth scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--card-bg-lighter);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Additional enhancements */
+.main-content {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Button styling */
+button {
+    background: var(--card-bg-lighter);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--hover-bg);
+    border-color: var(--text-secondary);
+}
+
+/* Activity items styling */
+.activity-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.activity-icon {
+    background: var(--card-bg-lighter);
+    border: 1px solid var(--border-color);
+}
