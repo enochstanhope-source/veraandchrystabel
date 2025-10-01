@@ -51,14 +51,18 @@ function validateLogin(event) {
 }
 
 function togglePassword() {
-    // Always ensure password is hidden
     const passwordInput = document.getElementById('password');
     const toggleBtn = document.querySelector('.toggle-password i');
     
-    // Force password type to be 'password'
-    passwordInput.type = 'password';
-    toggleBtn.classList.remove('fa-eye-slash');
-    toggleBtn.classList.add('fa-eye');
+    if (passwordInput.type === 'text') {
+        passwordInput.type = 'password';
+        toggleBtn.classList.remove('fa-eye-slash');
+        toggleBtn.classList.add('fa-eye');
+    } else {
+        passwordInput.type = 'text';
+        toggleBtn.classList.remove('fa-eye');
+        toggleBtn.classList.add('fa-eye-slash');
+    }
 }
 
 function showError(message) {
